@@ -1,0 +1,15 @@
+current directory: /Users/fukumurako/Development/hackathon_task/vendor/bundle/gems/websocket-driver-0.7.1/ext/websocket-driver
+/Users/fukumurako/.rbenv/versions/2.6.3/bin/ruby -I /Users/fukumurako/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191009-42610-qxuw14.rb extconf.rb
+creating Makefile
+
+current directory: /Users/fukumurako/Development/hackathon_task/vendor/bundle/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/fukumurako/Development/hackathon_task/vendor/bundle/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/fukumurako/Development/hackathon_task/vendor/bundle/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20191009-42610-8hih71
