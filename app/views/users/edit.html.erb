@@ -1,0 +1,23 @@
+<div class="main users-edit">
+  <div class="container">
+    <div class="form-heading">ユーザー情報の編集</div>
+    <%= form_with model: @user, local: true do |form| %>
+      <div class="form users-form">
+        <div class="form-body">
+          <% @user.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <%= form.label :name, value: "ユーザー名" %>
+          <%= form.text_field :name, value: @user.name %>
+          <%= form.label :image, value: "画像" %>
+          <%= form.file_field :image %>
+          <%= form.label :email, value: "メールアドレス" %>
+          <%= form.email_field :email, value: @user.email %>
+          <%= form.submit "保存" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
