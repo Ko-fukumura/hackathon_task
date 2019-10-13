@@ -4,7 +4,9 @@
       <%= image_tag "/user_images/#{@user.image_name}" %>
       <h2><%= @user.name %></h2>
       <p><%= @user.email %></p>
-      <%= link_to "編集", edit_user_path %>
+      <% if @user.id == @current_user.id%>
+        <%= link_to "編集", edit_user_path %>
+      <% end %>
     </div>
   </div>
 </div>
