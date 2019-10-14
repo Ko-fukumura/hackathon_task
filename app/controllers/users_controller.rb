@@ -79,6 +79,11 @@ class UsersController < ApplicationController
     redirect_to login_url
   end
 
+  def likes
+    @user = User.find_by(id: params[:id])
+    @likes = Like.where(user_id: @user.id)
+  end
+
   private
 
     def ensure_correct_user

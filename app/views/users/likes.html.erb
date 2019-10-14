@@ -1,0 +1,31 @@
+<div class="main user-show">
+    <div class="container">
+      <div class="user">
+        <%= image_tag "/user_images/#{@user.image_name}" %>
+        <h2><%= @user.name %></h2>
+        <p><%= @user.email %></p>
+        <% if @user.id == @current_user.id%>
+          <%= link_to "編集", edit_user_path %>
+        <% end %>
+      </div>
+  
+      <ul class="user-tabs">
+        <li><%= link_to "投稿", user_path(@user) %></li>
+        <li class="active"><%= link_to "いいね", likes_user_path(@user) %></li>
+      </ul>
+      <% @likes.each do |like| %>
+        <% post = Post.find(like.post_id) %>
+        <div class="posts-index-item">
+          <div class="post-left">
+            <%= image_tag "/user_images/#{post.user.image_name}" %>
+          </div>
+          <div class="post-right">
+            <div class="post-user-name">
+              <%= link_to post.user.name, user_path(post.user.id)%>
+            </div>
+            <%= link_to post.content, "/posts/#{post.id}" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
