@@ -15,10 +15,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:user][:name],
-                      email: params[:user][:email],
-                      password: params[:user][:password],
-                      image_name: "default_user.jpg")
+    @user = User.new(user_params)
+    @user.image_name = "default_user.jpg"
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
@@ -39,8 +37,7 @@ class UsersController < ApplicationController
       image = (params[:user][:image])
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
-    if @user.update(name: params[:user][:name],
-       email: params[:user][:email])
+    if @user.update(user_params)
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to user_url(@user)
     else
@@ -84,6 +81,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :image_name)
+    end
 
     def ensure_correct_user
       if @current_user.id != params[:id].to_i

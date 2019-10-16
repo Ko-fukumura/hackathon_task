@@ -1,18 +1,18 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_with model: @post, local: true do |form| %>
-      <div class="form">
-        <div class="form-body">
-          <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-          <% end %>
+    <div class="form">
+      <div class="form-body">
+        <% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+        <%= form_with model: @post, local: true do |form| %>
           <%= form.text_area :content %>
           <%= form.submit "送信" %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

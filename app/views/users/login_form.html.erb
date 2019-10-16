@@ -1,20 +1,21 @@
 <div class="main users-new">
   <div class="container">
-    <%= form_with model: @user, local: true do |form| %>
-      <div class="form users-form">
-        <div class="form-body">
-          <% if @error_message %>
-            <div class="form-error">
-              <%= @error_message %>
-            </div>
-          <% end %>
-          <%= form.label :email, value: "メールアドレス" %>
+    <div class="form-heading">ログイン</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
+        <%= form_with model: @user, local: true do |form| %>
+          <%= form.label :email, "メールアドレス" %>
           <%= form.email_field :email, value: @email %>
-          <%= form.label :password, value: "パスワード" %>
+          <%= form.label :password, "パスワード" %>
           <%= form.password_field :password, value: @password %>
           <%= form.submit "ログイン" %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
