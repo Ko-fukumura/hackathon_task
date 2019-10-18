@@ -14,11 +14,11 @@
       </div>
 
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= link_to "/likes/#{@post.id}/destroy", method: :post do %>
+        <%= link_to "/likes/#{@post.id}/destroy", remote: true, method: :post do %>
           <span class="fa fa-heart like-btn-unlikes" style="color: #ff2581;"></span>
         <% end %>
       <% else %>
-        <%= link_to "/likes/#{@post.id}/create", method: :post do %>
+        <%= link_to "/likes/#{@post.id}/create", remote: true, method: :post do %>
           <span class="fa fa-heart like-btn" style="color: #8899a6;"></span>
         <% end %>
       <% end %>
